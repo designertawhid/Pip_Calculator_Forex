@@ -5,12 +5,15 @@ export const calculatePipValue = (
   pairCode: string,
   accountCurrency: string
 ): number => {
-  // Standard pip value calculation for major pairs
-  // This is a simplified version - in a real app, you'd need more complex logic
-  // for cross pairs and account currency conversion
   const pipValue = getPipValue(pairCode);
-  const standardLot = 100000; // Standard lot size in forex
   
+  // Special handling for XAUUSD (Gold)
+  if (pairCode === 'XAUUSD') {
+    return lotSize * 10; // 0.01 lot = $0.10 per pip
+  }
+  
+  // Standard pip value calculation for other pairs
+  const standardLot = 100000; // Standard lot size in forex
   return (lotSize * standardLot) * pipValue;
 };
 
@@ -34,6 +37,15 @@ export const calculateProfit = (
     priceDiff = entryPrice - exitPrice;
   }
   
+  // Special handling for XAUUSD (Gold)
+  if (pairCode === 'XAUUSD') {
+    const pips = priceDiff * 10; // Convert price difference to pips (multiply by 10)
+    const pipValuePerLot = calculatePipValue(lotSize, pairCode, accountCurrency);
+    const amount = pips * pipValuePerLot;
+    return { pips, amount };
+  }
+  
+  // Standard calculation for other pairs
   const pips = priceDiff / pipSize;
   const pipValuePerLot = calculatePipValue(lotSize, pairCode, accountCurrency);
   const amount = pips * pipValuePerLot;

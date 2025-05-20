@@ -21,7 +21,7 @@ export const indices = [
 ];
 
 export const commodities = [
-  { code: 'XAUUSD', name: 'XAU/USD', pip: 0.01, description: 'Gold / US Dollar' },
+  { code: 'XAUUSD', name: 'XAU/USD', pip: 0.1, description: 'Gold / US Dollar' },
   { code: 'XAGUSD', name: 'XAG/USD', pip: 0.01, description: 'Silver / US Dollar' },
   { code: 'XAUEUR', name: 'XAU/EUR', pip: 0.01, description: 'Gold / Euro' },
 ];
@@ -72,7 +72,7 @@ export const exoticPairs = [
   { code: 'USDNOK', name: 'USD/NOK', pip: 0.0001, description: 'US Dollar / Norwegian Krone' },
 ];
 
-export const allPairs = [...majorPairs, ...indices, ...commodities, ...crossPairs, ...exoticPairs];
+export const allPairs = [...commodities, ...majorPairs, ...indices, ...crossPairs, ...exoticPairs];
 
 export const currencies = [
   { code: 'USD', name: 'US Dollar', symbol: '$' },
