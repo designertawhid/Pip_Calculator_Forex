@@ -83,6 +83,8 @@ export const currencies = [
   { code: 'CAD', name: 'Canadian Dollar', symbol: 'C$' },
   { code: 'CHF', name: 'Swiss Franc', symbol: 'Fr' },
   { code: 'NZD', name: 'New Zealand Dollar', symbol: 'NZ$' },
+  { code: 'INR', name: 'Indian Rupee', symbol: '₹' },
+  { code: 'BDT', name: 'Bangladeshi Taka', symbol: '৳' },
 ];
 
 export const getSymbolForCurrency = (code: string): string => {
