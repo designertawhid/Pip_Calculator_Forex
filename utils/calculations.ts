@@ -1,5 +1,12 @@
 import { getPipValue } from '@/constants/forexPairs';
 
+// Exchange rates
+const exchangeRates = {
+  BDT: 121.64, // 1 USD = 121.64 BDT
+  INR: 82.58,  // 1 USD = 82.58 INR
+  USD: 1,
+};
+
 export const calculatePipValue = (
   lotSize: number,
   pairCode: string,
@@ -9,12 +16,14 @@ export const calculatePipValue = (
   
   // Special handling for XAUUSD (Gold)
   if (pairCode === 'XAUUSD') {
-    return lotSize * 10; // 0.01 lot = $0.10 per pip
+    const baseValue = lotSize * 10; // 0.01 lot = $0.10 per pip
+    return baseValue * exchangeRates[accountCurrency as keyof typeof exchangeRates];
   }
   
   // Standard pip value calculation for other pairs
   const standardLot = 100000; // Standard lot size in forex
-  return (lotSize * standardLot) * pipValue;
+  const usdValue = (lotSize * standardLot) * pipValue;
+  return usdValue * exchangeRates[accountCurrency as keyof typeof exchangeRates];
 };
 
 export const calculateProfit = (
@@ -73,6 +82,8 @@ export const formatAmount = (amount: number, currency: string): string => {
     CAD: 'C$',
     CHF: 'Fr',
     NZD: 'NZ$',
+    INR: '₹',
+    BDT: '৳',
   };
   
   const symbol = symbols[currency] || currency;
