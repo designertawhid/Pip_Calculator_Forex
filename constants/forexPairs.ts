@@ -1,5 +1,4 @@
 export const majorPairs = [
-  { code: 'XAUUSD', name: 'XAU/USD', pip: 0.01, description: 'Gold / US Dollar' },
   { code: 'USDCAD', name: 'USD/CAD', pip: 0.0001, description: 'US Dollar / Canadian Dollar' },
   { code: 'GBPUSD', name: 'GBP/USD', pip: 0.0001, description: 'British Pound / US Dollar' },
   { code: 'AUDUSD', name: 'AUD/USD', pip: 0.0001, description: 'Australian Dollar / US Dollar' },
