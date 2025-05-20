@@ -23,8 +23,8 @@ interface CalculatorContextType {
 
 const CalculatorContext = createContext<CalculatorContextType>({
   accountCurrency: 'USD',
-  currencyPair: 'EURUSD',
-  lotSize: '0.10',
+  currencyPair: 'XAUUSD',
+  lotSize: '0.01',
   entryPrice: '',
   slPrice: '',
   tpPrice: '',
@@ -43,8 +43,8 @@ const CalculatorContext = createContext<CalculatorContextType>({
 
 export const CalculatorProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [accountCurrency, setAccountCurrency] = useState('USD');
-  const [currencyPair, setCurrencyPair] = useState('EURUSD');
-  const [lotSize, setLotSize] = useState('0.10');
+  const [currencyPair, setCurrencyPair] = useState('XAUUSD');
+  const [lotSize, setLotSize] = useState('0.01');
   const [entryPrice, setEntryPrice] = useState('');
   const [slPrice, setSlPrice] = useState('');
   const [tpPrice, setTpPrice] = useState('');
