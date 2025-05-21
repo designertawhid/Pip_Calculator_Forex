@@ -12,10 +12,10 @@ export const calculatePipValue = (
   pairCode: string,
   accountCurrency: string
 ): number => {
-  // Special handling for XAUUSD (Gold)
+  // For XAUUSD (Gold), 0.01 lot = $0.10 per pip
   if (pairCode === 'XAUUSD') {
-    const baseValueUSD = lotSize * 0.10; // 0.01 lot = $0.10 per pip
-    return baseValueUSD * exchangeRates[accountCurrency as keyof typeof exchangeRates];
+    const pipValueUSD = 0.10 * (lotSize / 0.01); // Scale pip value based on lot size
+    return pipValueUSD * exchangeRates[accountCurrency as keyof typeof exchangeRates];
   }
   
   // Standard pip value calculation for other pairs
