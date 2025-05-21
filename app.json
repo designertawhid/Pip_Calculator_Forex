@@ -1,15 +1,23 @@
 {
   "expo": {
-    "name": "bolt-expo-nativewind",
-    "slug": "bolt-expo-nativewind",
+    "name": "Pip Calculator Forex",
+    "slug": "pip-calculator-forex",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "pipcalculator",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#2563EB"
+      },
+      "package": "com.faxacademy.pipcalculator",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
