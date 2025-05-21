@@ -12,15 +12,14 @@ export const calculatePipValue = (
   pairCode: string,
   accountCurrency: string
 ): number => {
-  const pipValue = getPipValue(pairCode);
-  
   // Special handling for XAUUSD (Gold)
   if (pairCode === 'XAUUSD') {
-    const baseValue = lotSize * 10; // 0.01 lot = $0.10 per pip
-    return baseValue * exchangeRates[accountCurrency as keyof typeof exchangeRates];
+    const baseValueUSD = lotSize * 0.10; // 0.01 lot = $0.10 per pip
+    return baseValueUSD * exchangeRates[accountCurrency as keyof typeof exchangeRates];
   }
   
   // Standard pip value calculation for other pairs
+  const pipValue = getPipValue(pairCode);
   const standardLot = 100000; // Standard lot size in forex
   const usdValue = (lotSize * standardLot) * pipValue;
   return usdValue * exchangeRates[accountCurrency as keyof typeof exchangeRates];
@@ -38,33 +37,28 @@ export const calculateProfit = (
     return { pips: 0, amount: 0 };
   }
 
-  const pipSize = getPipValue(pairCode);
   let priceDiff = exitPrice - entryPrice;
   
   // For sell orders, we need to reverse the calculation
   if (!isBuy) {
-    priceDiff = entryPrice - exitPrice;
+    priceDiff = -priceDiff;
   }
   
   // Special handling for XAUUSD (Gold)
   if (pairCode === 'XAUUSD') {
-    const pips = priceDiff * 10; // Convert price difference to pips (multiply by 10)
+    const pips = priceDiff * 10; // Convert price difference to pips
     const pipValuePerLot = calculatePipValue(lotSize, pairCode, accountCurrency);
     const amount = pips * pipValuePerLot;
     return { pips, amount };
   }
   
   // Standard calculation for other pairs
+  const pipSize = getPipValue(pairCode);
   const pips = priceDiff / pipSize;
   const pipValuePerLot = calculatePipValue(lotSize, pairCode, accountCurrency);
   const amount = pips * pipValuePerLot;
   
   return { pips, amount };
-};
-
-// Handle special cases for pip calculation
-export const formatPips = (pips: number): string => {
-  return pips.toFixed(1);
 };
 
 // Format monetary amounts with proper currency symbol
@@ -92,4 +86,9 @@ export const formatAmount = (amount: number, currency: string): string => {
     return `-${symbol}${formatted}`;
   }
   return `${symbol}${formatted}`;
+};
+
+// Handle special cases for pip calculation
+export const formatPips = (pips: number): string => {
+  return pips.toFixed(1);
 };
