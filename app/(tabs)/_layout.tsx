@@ -18,9 +18,9 @@ export default function TabLayout() {
           borderTopColor: colors.border,
           elevation: 0,
           shadowOpacity: 0,
-          height: 64,
-          paddingBottom: 12,
-          paddingTop: 8,
+          height: 60,
+          paddingBottom: 10,
+          paddingTop: 10,
           ...(isLargeScreen && {
             maxWidth: 400,
             alignSelf: 'center',
@@ -34,11 +34,12 @@ export default function TabLayout() {
         },
         tabBarLabelStyle: {
           fontFamily: 'Inter-Medium',
-          fontSize: 11,
-          marginTop: 2,
+          fontSize: 12,
+          lineHeight: 16,
+          marginTop: 0,
         },
         tabBarIconStyle: {
-          marginBottom: -4,
+          marginBottom: 2,
         },
         headerShown: false,
       }}
