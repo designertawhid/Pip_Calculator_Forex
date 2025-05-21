@@ -47,8 +47,9 @@ export const calculateProfit = (
   // Special handling for XAUUSD (Gold)
   if (pairCode === 'XAUUSD') {
     const pips = priceDiff * 10; // Convert price difference to pips
-    const pipValuePerLot = calculatePipValue(lotSize, pairCode, accountCurrency);
-    const amount = pips * pipValuePerLot;
+    const pipValueUSD = 0.10 * (lotSize / 0.01); // Base pip value in USD
+    const pipValueInCurrency = pipValueUSD * exchangeRates[accountCurrency as keyof typeof exchangeRates];
+    const amount = pips * pipValueInCurrency;
     return { pips, amount };
   }
   
