@@ -18,9 +18,9 @@ export default function TabLayout() {
           borderTopColor: colors.border,
           elevation: 0,
           shadowOpacity: 0,
-          height: Platform.OS === 'ios' ? 44 : 48,
-          paddingBottom: Platform.OS === 'ios' ? 16 : 6,
-          paddingTop: 6,
+          height: 56,
+          paddingBottom: 8,
+          paddingTop: 8,
           ...(isLargeScreen && {
             maxWidth: 400,
             alignSelf: 'center',
@@ -34,11 +34,11 @@ export default function TabLayout() {
         },
         tabBarLabelStyle: {
           fontFamily: 'Inter-Medium',
-          fontSize: 11,
-          marginTop: 0,
+          fontSize: 12,
+          marginTop: 4,
         },
         tabBarIconStyle: {
-          marginTop: 2,
+          marginBottom: 0,
         },
         headerShown: false,
       }}
@@ -48,7 +48,7 @@ export default function TabLayout() {
         options={{
           title: 'Calculator',
           tabBarIcon: ({ color, size }) => (
-            <Calculator size={size - 4} color={color} />
+            <Calculator size={22} color={color} strokeWidth={1.5} />
           ),
         }}
       />
@@ -57,7 +57,7 @@ export default function TabLayout() {
         options={{
           title: 'Settings',
           tabBarIcon: ({ color, size }) => (
-            <Settings size={size - 4} color={color} />
+            <Settings size={22} color={color} strokeWidth={1.5} />
           ),
         }}
       />
