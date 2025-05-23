@@ -40,7 +40,7 @@
         "origin": false
       }
     },
-    "description": "A professional forex pip calculator for traders to calculate profit, loss, and position sizes.",
+    "description": "A professional forex pip calculator",
     "primaryColor": "#203b51",
     "privacy": "public",
     "githubUrl": "https://github.com/faxacademy/pip-calculator-forex"
