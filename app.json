@@ -19,7 +19,8 @@
         "backgroundColor": "#203b51"
       },
       "package": "com.faxacademy.pipcalculator",
-      "versionCode": 1
+      "versionCode": 1,
+      "permissions": []
     },
     "web": {
       "bundler": "metro",
@@ -35,7 +36,9 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {}
+      "router": {
+        "origin": false
+      }
     },
     "description": "A professional forex pip calculator for traders to calculate profit, loss, and position sizes.",
     "primaryColor": "#203b51",
