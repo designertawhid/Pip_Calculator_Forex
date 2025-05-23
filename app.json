@@ -35,18 +35,11 @@
       "typedRoutes": true
     },
     "extra": {
-      "router": {},
-      "eas": {
-        "projectId": "f4d01e08-44d0-4a19-a68d-3a6658f55fe8"
-      }
+      "router": {}
     },
     "description": "A professional forex pip calculator for traders to calculate profit, loss, and position sizes.",
     "primaryColor": "#203b51",
     "privacy": "public",
-    "githubUrl": "https://github.com/faxacademy/pip-calculator-forex",
-    "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/f4d01e08-44d0-4a19-a68d-3a6658f55fe8"
-    }
+    "githubUrl": "https://github.com/faxacademy/pip-calculator-forex"
   }
 }
