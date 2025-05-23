@@ -5,12 +5,6 @@ import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { useFonts } from 'expo-font';
 import { Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
-import * as SplashScreen from 'expo-splash-screen';
-import { View, StyleSheet } from 'react-native';
-import { Splash } from '@/components/Splash';
-
-// Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   useFrameworkReady();
@@ -22,16 +16,9 @@ export default function RootLayout() {
     'Inter-Bold': Inter_700Bold,
   });
 
-  useEffect(() => {
-    if (fontsLoaded || fontError) {
-      // Hide the splash screen after fonts are loaded
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  // Show custom splash screen while fonts are loading
+  // Wait for fonts to load
   if (!fontsLoaded && !fontError) {
-    return <Splash />;
+    return null;
   }
 
   return (
