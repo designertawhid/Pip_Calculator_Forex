@@ -9,7 +9,9 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.faxacademy.pipcalculator",
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
@@ -37,6 +39,14 @@
       "eas": {
         "projectId": "f4d01e08-44d0-4a19-a68d-3a6658f55fe8"
       }
+    },
+    "description": "A professional forex pip calculator for traders to calculate profit, loss, and position sizes.",
+    "primaryColor": "#203b51",
+    "privacy": "public",
+    "githubUrl": "https://github.com/faxacademy/pip-calculator-forex",
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/f4d01e08-44d0-4a19-a68d-3a6658f55fe8"
     }
   }
 }
