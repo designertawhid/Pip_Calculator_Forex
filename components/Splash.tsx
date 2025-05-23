@@ -8,7 +8,7 @@ export function Splash() {
   return (
     <View style={[styles.container, { backgroundColor: isDark ? '#000000' : '#FFFFFF' }]}>
       <Image
-        source={isDark ? require('../assets/logo-white.png') : require('../assets/logo-color.png')}
+        source={{ uri: isDark ? 'https://images.pexels.com/photos/2882634/pexels-photo-2882634.jpeg' : 'https://images.pexels.com/photos/2882566/pexels-photo-2882566.jpeg' }}
         style={styles.logo}
         resizeMode="contain"
       />
