@@ -7,7 +7,7 @@
     "scheme": "pipcalculator",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "https://images.pexels.com/photos/2882634/pexels-photo-2882634.jpeg",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
