@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { useFonts } from 'expo-font';
+import { View } from 'react-native';
 import { 
   Inter_400Regular, 
   Inter_500Medium, 
@@ -46,6 +47,7 @@ export default function RootLayout() {
       } catch (e) {
         console.warn(e);
       } finally {
+        // Tell the application to render
         setAppIsReady(true);
       }
     }
@@ -53,24 +55,30 @@ export default function RootLayout() {
     prepare();
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady && (fontsLoaded || fontError)) {
-      await SplashScreen.hideAsync();
+  const onLayoutRootView = useCallback(() => {
+    if (appIsReady) {
+      // This tells the splash screen to hide immediately! If we call this after
+      // `setAppIsReady`, then we may see a blank screen while the app is
+      // loading its initial state and rendering its first pixels. So instead,
+      // we hide the splash screen once we know the root view has already
+      // performed layout.
+      SplashScreen.hideAsync();
     }
-  }, [appIsReady, fontsLoaded, fontError]);
+  }, [appIsReady]);
 
-  // Wait for fonts to load and app to be ready
-  if (!appIsReady || (!fontsLoaded && !fontError)) {
+  if (!appIsReady) {
     return null;
   }
 
   return (
     <ThemeProvider>
-      <Stack screenOptions={{ headerShown: false }} onLayout={onLayoutRootView}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
-      </Stack>
-      <StatusBar style="auto" />
+      <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
+        </Stack>
+        <StatusBar style="auto" />
+      </View>
     </ThemeProvider>
   );
 }
