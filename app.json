@@ -27,7 +27,9 @@
         "backgroundColor": "#2563EB"
       },
       "package": "com.faxacademy.pipcalculator",
-      "versionCode": 1
+      "versionCode": 1,
+      "softwareKeyboardLayoutMode": "pan",
+      "permissions": []
     },
     "web": {
       "bundler": "metro",
@@ -37,7 +39,8 @@
     "plugins": [
       "expo-router",
       "expo-font",
-      "expo-web-browser"
+      "expo-web-browser",
+      "expo-splash-screen"
     ],
     "experiments": {
       "typedRoutes": true
