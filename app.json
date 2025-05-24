@@ -36,7 +36,17 @@
     "plugins": [
       "expo-router",
       "expo-font",
-      "expo-splash-screen"
+      [
+        "expo-splash-screen",
+        {
+          "splashScreen": {
+            "image": "./assets/images/splash-light.png",
+            "dark": {
+              "image": "./assets/images/splash-dark.png"
+            }
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
