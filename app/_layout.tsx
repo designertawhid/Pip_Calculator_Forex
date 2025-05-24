@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { useFonts } from 'expo-font';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { 
   Inter_400Regular, 
   Inter_500Medium, 
@@ -16,11 +16,13 @@ import * as SplashScreen from 'expo-splash-screen';
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
-// Set the animation options. This is optional.
-SplashScreen.setOptions({
-  duration: 400,
-  fade: true,
-});
+// Set the animation options only on native platforms
+if (Platform.OS !== 'web') {
+  SplashScreen.setOptions({
+    duration: 400,
+    fade: true,
+  });
+}
 
 export default function RootLayout() {
   useFrameworkReady();
