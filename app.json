@@ -8,18 +8,8 @@
     "scheme": "pipcalculator",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/logo-color.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "dark": {
-        "image": "./assets/images/logo-white.png",
-        "backgroundColor": "#000000"
-      }
-    },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.faxacademy.pipcalculator"
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
@@ -27,33 +17,14 @@
         "backgroundColor": "#2563EB"
       },
       "package": "com.faxacademy.pipcalculator",
-      "versionCode": 1,
-      "softwareKeyboardLayoutMode": "pan",
-      "permissions": []
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
       "output": "single",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
-          "dark": {
-            "image": "./assets/images/splash-icon-dark.png",
-            "backgroundColor": "#000000"
-          }
-        }
-      ],
-      "expo-router",
-      "expo-font",
-      "expo-web-browser"
-    ],
+    "plugins": ["expo-router", "expo-font", "expo-web-browser"],
     "experiments": {
       "typedRoutes": true
     }
