@@ -1,30 +1,27 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, useColorScheme } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const { width, height } = Dimensions.get('window');
 
 export function Splash() {
-  const colorScheme = useColorScheme();
-  const isDark = colorScheme === 'dark';
-
   return (
     <LinearGradient
-      colors={isDark ? ['#000000', '#111111'] : ['#ffffff', '#f8f8f8']}
+      colors={['#294660', '#1a2d3d', '#0f1a24']}
       style={styles.container}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
     >
       <View style={styles.content}>
         <Image
-          source={isDark ? require('../assets/images/splash-dark.png') : require('../assets/images/splash-light.png')}
+          source={require('../assets/images/logo-color.png')}
           style={styles.logo}
           resizeMode="contain"
         />
       </View>
       
       <View style={styles.footer}>
-        <Text style={[styles.text, isDark && styles.darkText]}>
+        <Text style={styles.text}>
           from{' '}
           <Text style={styles.highlight}>
             Fax Academy
@@ -33,9 +30,9 @@ export function Splash() {
       </View>
       
       {/* Decorative elements */}
-      <View style={[styles.circle, styles.circle1, isDark && styles.darkCircle]} />
-      <View style={[styles.circle, styles.circle2, isDark && styles.darkCircle]} />
-      <View style={[styles.circle, styles.circle3, isDark && styles.darkCircle]} />
+      <View style={[styles.circle, styles.circle1]} />
+      <View style={[styles.circle, styles.circle2]} />
+      <View style={[styles.circle, styles.circle3]} />
     </LinearGradient>
   );
 }
@@ -65,24 +62,19 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    color: '#000000',
+    color: '#FFFFFF',
     fontFamily: 'Inter-Regular',
     textAlign: 'center',
-  },
-  darkText: {
-    color: '#FFFFFF',
   },
   highlight: {
     color: '#fca901',
     fontFamily: 'Inter-Medium',
   },
+  // Decorative circles with gradient borders
   circle: {
     position: 'absolute',
     borderRadius: 1000,
     opacity: 0.1,
-  },
-  darkCircle: {
-    opacity: 0.2,
   },
   circle1: {
     width: width * 0.8,
@@ -98,7 +90,7 @@ const styles = StyleSheet.create({
     height: width * 0.6,
     backgroundColor: 'transparent',
     borderWidth: 2,
-    borderColor: '#000000',
+    borderColor: '#FFFFFF',
     bottom: -width * 0.1,
     left: -width * 0.1,
   },

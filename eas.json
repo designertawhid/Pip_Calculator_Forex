@@ -9,12 +9,6 @@
       "distribution": "internal"
     },
     "preview": {
-      "android": {
-        "buildType": "apk",
-        "env": {
-          "ANDROID_NDK_HOME": "/opt/android-ndk"
-        }
-      },
       "distribution": "internal"
     },
     "production": {
